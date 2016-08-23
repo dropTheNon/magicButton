@@ -1,4 +1,4 @@
-angular.module('MealServices', ['ngResource'])
+angular.module('MagicServices', ['ngResource'])
 .factory('Meals', ['$resource', function($resource) {
   return $resource('/api/meals/:id');
 }])
