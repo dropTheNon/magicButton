@@ -1,8 +1,5 @@
 var express = require('express');
-var User = require('../models/user');
+var Meal = require('../models/meal');
 var router = express.Router();
-
-// router.route('/')
-//   .get()
 
 module.exports = router;

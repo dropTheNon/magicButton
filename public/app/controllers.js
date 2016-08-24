@@ -4,6 +4,7 @@ angular.module('MagicCtrls', ['MagicServices'])
     email: '',
     password: ''
   };
+
   $scope.userSignup = function() {
     $http.post('/api/users', $scope.user).then(function success(res) {
       $location.path('/');
@@ -18,6 +19,7 @@ angular.module('MagicCtrls', ['MagicServices'])
     email: '',
     password: ''
   };
+
   $scope.userLogin = function() {
     $http.post('/api/auth', $scope.user).then(function success(res) {
       Auth.saveToken(res.data.token);
@@ -30,6 +32,7 @@ angular.module('MagicCtrls', ['MagicServices'])
 }])
 .controller('NavCtrl', ['$scope', 'Auth', function($scope, Auth) {
   $scope.Auth = Auth;
+
   $scope.logout = function() {
     Auth.removeToken();
     console.log('My token:', Auth.getToken());
@@ -62,4 +65,27 @@ angular.module('MagicCtrls', ['MagicServices'])
     console.log(data);
   });
 }])
-.controller('MealPlanCtrl', ['$scope', ])
+.controller('MealPlanCtrl', ['$scope', function($scope) {
+  $scope.allMeals = [];
+  $scope.myMeals = [];
+  var quantDefault = 5;
+
+  $scope.planMeals = function(allMeals, quant) {
+    if (!quant) {
+      if (allMeals.length < 5) {
+        var quant = allMeals.length;
+      } else {
+        var quant = quantDefault;
+      }
+    }
+    while (quant > 0) {
+      // ran randomly selects an index from our meals array
+      var ran = Math.floor(Math.random() * allMeals.length);
+      // pushing the selected meal to our myMeals array
+      $scope.myMeals.push(allMeals[ran]);
+      // removing the selected meal from our allMeals array, to avoid duplicates
+      allMeals.splice(ran, 1);
+      quant -= 1;
+    }
+  };
+}]);

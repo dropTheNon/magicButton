@@ -1,50 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="MagicButton">
+<html lang = "en" ng-app="MagicButton">
 <head>
+  <base href="/">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MagicButton - Meal-planning and grocery-listing with one click!</title>
+
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-  <title>MagicButton - Meal-plan and write grocery list with one click</title>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
   <script src="/public/app/app.js"></script>
+  <script src="/public/app/controllers.js"></script>
+  <script src="/public/app/services.js"></script>
 </head>
-<body ng-controller="MainCtrl">
+<body>
   <div class="container">
-    <div class="text-center" ng-class="landingPage">
-      <h1>MagicButton</h1>
-      <h3>Meal-planning and grocery-shopping made simple</h3>
-      <button class="btn btn-success" ng-click="">Get Started</button>
-      <hr/>
-      <h3>About MagicButton</h3>
-      <div class="row">
-        <div class="col-sm-4">
-          <h4>Upload Your Meals</h4>
-          <p>"Write down" your list for the last time. Create a name for each meal and list the ingredient you'd need from the store. We'll store this information and you can adjust it anytime.</p>
-        </div>
-        <div class="col-sm-4">
-          <h4>Select Tags for Meals</h4>
-          <p>Assign tags to meals, to allow for easy customization of meal-planning. For example, tag certain meals as "Fast" and select that tag for the nights your schedule is busiest.</p>
-        </div>
-        <div class="col-sm-4">
-          <h4>One Click Meal Planning</h4>
-          <p>Create your meal plan and grocery list with one click. Confirm, and get the grocery list emailed to you. "Task Rabbit"-&trade; integration coming soon, to get your groceries delivered to you.</p>
-        </div>
-      </div>
-    </div><!-- landingPage -->
-    <div class="text-center" ng-class="createMeal">
-      <form>
-        <div class="form-group">
-          <label for="mealName">Meal Name</label>
-          <input type="text" class="form-control" id="mealName" placeholder="e.g. 'Aunt Margie's Chicken Pot Pie'">
-        </div>
-        <div class=""></div>
-      </form>
-    </div>
+    <div ng-include="'app/views/navbar.html'"></div>
+    <div ui-view></div>
   </div>
 
-  <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+  <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
  <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
